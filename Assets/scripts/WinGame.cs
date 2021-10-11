@@ -27,8 +27,10 @@ public class WinGame : MonoBehaviour
             Conffetti2.Play();
 
             GameControl.instance.player.sidespeed = 0f;
+            GameControl.instance.player.speed *= 1.6f; 
             GameControl.instance.gameOver = false;
             GameControl.instance.WinUI.SetActive(true);
+            GameControl.instance.CameraControl.EndGameCamera();
         }
     }
 }

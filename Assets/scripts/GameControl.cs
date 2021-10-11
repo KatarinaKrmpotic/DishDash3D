@@ -11,6 +11,8 @@ public class GameControl : MonoBehaviour
     public bool gameOver = false;
     public PlayerMovement player;
 
+    public Camerafollow CameraControl;
+
     public bool isPaused;
     public GameObject StartUI;
     public GameObject LoseUI;

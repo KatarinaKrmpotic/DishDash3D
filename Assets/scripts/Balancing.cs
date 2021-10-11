@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Balancing : MonoBehaviour
 {
-    
+    private float PlayerSpeed;
+    private float PlayerSideSpeed;
     public PlayerMovement player;
     public float power = 0.1f;
     public float rotation = 15f;
@@ -29,6 +30,10 @@ public class Balancing : MonoBehaviour
             if (player != null)
             {
                 playerGameObject = player.gameObject;
+                PlayerSpeed = player.speed;
+                PlayerSideSpeed = player.sidespeed;
+                player.speed = 7f;
+                player.sidespeed = 6f;
             }
 
         }
@@ -50,8 +55,11 @@ public class Balancing : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
+
         if (other.gameObject == playerGameObject)
         {
+            player.speed = PlayerSpeed;
+            player.sidespeed = PlayerSideSpeed;
             playerGameObject.transform.rotation = Quaternion.identity;
             player = null;
             playerGameObject = null;

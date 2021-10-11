@@ -10,6 +10,8 @@ public class Multiplier : MonoBehaviour
     public Transform LeftLocator;
     public Transform RightLocator;
 
+    public bool PlayerStop;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -86,6 +88,12 @@ public class Multiplier : MonoBehaviour
             
 
             if (player.collectRightHand.foods.Count == 0 && player.collectLeftHand.foods.Count == 0)
+            {
+                GameControl.instance.gameOver = true;
+                player.StickMan.SetTrigger("isDancing");
+            }
+
+            if (PlayerStop)
             {
                 GameControl.instance.gameOver = true;
                 player.StickMan.SetTrigger("isDancing");
